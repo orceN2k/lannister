@@ -41,3 +41,31 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: Background 3
+    userID: 1
+    uniqueID: 2709081061
+    locked: 0
+  - name: Background 2
+    userID: 2
+    uniqueID: 3206504201
+    locked: 0
+  - name: Background 1
+    userID: 3
+    uniqueID: 214007001
+    locked: 0
+  - name: Ground
+    userID: 4
+    uniqueID: 327990691
+    locked: 0
+  - name: Player
+    userID: 5
+    uniqueID: 2618147089
+    locked: 0
+  - name: Foreground 1
+    userID: 6
+    uniqueID: 830266583
+    locked: 0
+  - name: Foreground 2
+    userID: 7
+    uniqueID: 4129346897
+    locked: 0
