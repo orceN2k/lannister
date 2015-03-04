@@ -50,7 +50,6 @@ public class CharacterControlScript : MonoBehaviour {
 	}
 
 	void Flip() {
-
 		facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
