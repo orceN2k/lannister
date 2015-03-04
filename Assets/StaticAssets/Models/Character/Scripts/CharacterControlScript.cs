@@ -11,6 +11,7 @@ public class CharacterControlScript : MonoBehaviour {
 	public Transform groundCheck;
 	public LayerMask whatIsGround;	
 	private bool grounded = false;
+	private bool canDoubleJump = false;
 	private float groundRadius = 0.2f;
 	public float jumpForce = 700f;
 
@@ -43,9 +44,17 @@ public class CharacterControlScript : MonoBehaviour {
 
 	void Update(){
 		// Jump function
-		if (grounded && Input.GetKeyDown (KeyCode.UpArrow)) {
-			animator.SetBool("Ground", false);
-			rigidbody2D.AddForce(new Vector2(0, jumpForce));
+		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+			if(grounded) {
+				animator.SetBool("Ground", false);
+				rigidbody2D.AddForce(new Vector2(0, jumpForce));
+				canDoubleJump = true;
+			} else {
+				if (canDoubleJump){
+					canDoubleJump = false;
+					rigidbody2D.AddForce(new Vector2(0, jumpForce));
+				}
+			}
 		}
 	}
 
