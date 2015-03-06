@@ -5,9 +5,7 @@ public class SpellRangeCheck : MonoBehaviour {
 
 	public Transform lightningBoltLinecastEnd;
 	public bool lightningBoltEnable = false;
-	public bool lightningSphereEnable = false;
-	public float xOffset = 0f;
-	public float yOffset = 0f;
+	public bool lightningChainEnable = false;
 	
 	private GameObject lightningChainDetection;
 	
@@ -25,29 +23,36 @@ public class SpellRangeCheck : MonoBehaviour {
 
 		RaycastHit2D hit = Physics2D.Linecast (transform.position, lightningBoltLinecastEnd.position, 1 << LayerMask.NameToLayer ("Enemy"));
 		if (hit.collider != null) {
-			LightningBolt(hit);
-			LightningChain(hit);
+
+			// call SpellControlScript
+			SpellControlScript scScript = gameObject.GetComponent<SpellControlScript>();
+			scScript.castLightningBolt(hit);
+			scScript.castLightningChain(hit);
+
+			// draw line to target
 			Debug.DrawLine (transform.position, hit.point, Color.red);
 		}
 	}
 
-	void LightningBolt(RaycastHit2D hit){
-		if (Input.GetKeyDown (KeyCode.Q)) {
-			// cast lightningbolt to target
-			LightningBoltAnimationScript lb = hit.rigidbody.gameObject.AddComponent<LightningBoltAnimationScript>();
-			lb.castLightningBolt(transform, hit.transform);
-		}
-	}
-
-	void LightningChain(RaycastHit2D hit) {
-		if (Input.GetKeyDown (KeyCode.W)) {
-			// cast lightningbolt to target
-			LightningBoltAnimationScript lb = hit.rigidbody.gameObject.AddComponent<LightningBoltAnimationScript>();
-			lb.castLightningBolt(transform, hit.transform);
-
-			// spawn chaining script to target
-			Vector2 target = hit.point;
-			Instantiate( lightningChainDetection, target, Quaternion.identity );
-		} 
-	}
+//	void LightningBolt(RaycastHit2D hit){
+//		if (Input.GetKeyDown (KeyCode.Q)) {
+//
+//			// cast lightningbolt to target
+//			LightningBoltAnimationScript lb = hit.rigidbody.gameObject.AddComponent<LightningBoltAnimationScript>();
+//			lb.castLightningBolt(transform, hit.transform);
+//		}
+//	}
+//
+//	void LightningChain(RaycastHit2D hit) {
+//		if (Input.GetKeyDown (KeyCode.W)) {
+//
+//			// cast lightningbolt to target
+//			LightningBoltAnimationScript lb = hit.rigidbody.gameObject.AddComponent<LightningBoltAnimationScript>();
+//			lb.castLightningBolt(transform, hit.transform);
+//
+//			// spawn chaining script to target
+//			Vector2 target = hit.point;
+//			Instantiate( lightningChainDetection, target, Quaternion.identity );
+//		} 
+//	}
 }

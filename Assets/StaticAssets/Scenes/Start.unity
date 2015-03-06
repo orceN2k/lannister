@@ -743,9 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightningBoltLinecastEnd: {fileID: 1134065949}
   lightningBoltEnable: 0
-  lightningSphereEnable: 0
-  xOffset: 0
-  yOffset: 0
+  lightningChainEnable: 0
 --- !u!114 &630696427
 MonoBehaviour:
   m_ObjectHideFlags: 0
