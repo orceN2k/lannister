@@ -12,7 +12,6 @@ GameObject:
   - 50: {fileID: 5075522}
   - 61: {fileID: 6175522}
   - 114: {fileID: 11475522}
-  - 114: {fileID: 11433542}
   m_Layer: 12
   m_Name: av_enemy_1
   m_TagString: Untagged
@@ -58,21 +57,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .910000026, y: 1.50999999}
   m_Center: {x: 0, y: 0}
---- !u!114 &11433542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 175522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e0261bc32957294082c279f36443207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  hasRegeneration: 0
-  regenerationRate: 1
 --- !u!114 &11475522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +68,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd453d0ce057c7042ad7756e4704c00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxEnergy: 100
+  currentEnergy: 0
+  hasEnergyRegeneration: 0
+  energyRegenerationRate: 1
+  maxHealth: 100
+  currentHealth: 0
+  hasHealthRegeneration: 0
+  healthRegenerationRate: 1
 --- !u!212 &21275522
 SpriteRenderer:
   m_ObjectHideFlags: 1

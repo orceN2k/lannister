@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterControlScript : MonoBehaviour {
+public class PlayerControlScript : MonoBehaviour {
 
 	public float maxSpeed = 10f;
 	private bool facingRight = true;

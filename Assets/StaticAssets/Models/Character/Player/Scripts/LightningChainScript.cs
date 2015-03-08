@@ -4,10 +4,17 @@ using System.Collections;
 public class LightningChainScript : MonoBehaviour {
 	
 	public float enemyRestruckDelay = 1f;
+
 	private GameObject lightningBoltCircle;
+	private LightningBoltScript lbScript;
+
+	void Awake() {
+		lightningBoltCircle = (GameObject)Resources.Load("lightningChainRangeDetection");
+		lbScript = gameObject.GetComponent<LightningBoltScript>();
+	}
 
 	void Start() {
-		lightningBoltCircle = (GameObject)Resources.Load("lightningChainRangeDetection");
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -23,8 +30,7 @@ public class LightningChainScript : MonoBehaviour {
 		if( hit == null ) { // the enemy is yet to be hit
 			
 			//Call you lightning strike effect here
-			LightningBoltAnimationScript lb = other.gameObject.AddComponent<LightningBoltAnimationScript>();
-			lb.castLightningBolt(transform, other.transform);
+			lbScript.castLightningBolt(other.gameObject.rigidbody2D.position);
 
 			//Create another copy of this lightning field, by doing this, it will start chaining when the condition is right
 			Instantiate( lightningBoltCircle, other.gameObject.transform.position, Quaternion.identity );
@@ -36,7 +42,7 @@ public class LightningChainScript : MonoBehaviour {
 			
 			//Kill this gameObject once you have struck the closest enemy
 			//Remove the Kill() if you want to strike everyone in the proximity
-			Kill();
+//			Kill();
 		}
 	}
 	
