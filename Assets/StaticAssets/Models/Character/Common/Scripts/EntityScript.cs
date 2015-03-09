@@ -42,6 +42,7 @@ public class EntityScript : MonoBehaviour {
 
 	public void die (){
 		print ("player died!");
+		Destroy (gameObject);
 	}
 
 	private void initEnergy () {

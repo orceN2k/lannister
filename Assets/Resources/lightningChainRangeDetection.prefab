@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5360e72d9ed97af4abe3697046a9c574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumRadius: 25
+  maximumRadius: 15
 --- !u!114 &11493864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e267a034496462e45aa7d05debea0917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
   timeBetweenCast: .100000001
 --- !u!120 &12022194
 LineRenderer:
@@ -137,6 +138,8 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     startWidth: 5
