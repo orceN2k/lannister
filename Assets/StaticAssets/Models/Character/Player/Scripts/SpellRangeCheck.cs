@@ -5,10 +5,6 @@ public class SpellRangeCheck : MonoBehaviour {
 
 	public Transform lightningBoltLinecastEnd;
 	public Transform powerDrainLinecastEnd;
-	public float powerDrainRadius = 10f;
-	
-	public bool lightningBoltEnable = false;
-	public bool lightningChainEnable = false;
 
 	private SpellControlScript spellControl;
 
@@ -26,7 +22,16 @@ public class SpellRangeCheck : MonoBehaviour {
 	void Update () {
 		lightningBoltRaycast ();
 		powerDrainRaycast ();
+
+		spellControl.castSpeedBoost ();
 	}
+
+//	void FixedUpdate() {
+//		if (Input.GetKeyDown (KeyCode.R)) {
+//			rigidbody2D.AddForce(new Vector2(rigidbody2D.velocity.x * 1000, 0));
+//		}
+//	}
+
 
 	void lightningBoltRaycast() {
 

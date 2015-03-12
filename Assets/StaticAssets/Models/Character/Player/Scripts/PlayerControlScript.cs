@@ -13,12 +13,14 @@ public class PlayerControlScript : MonoBehaviour {
 	private bool grounded = false;
 	private bool canDoubleJump = false;
 	private float groundRadius = 0.2f;
+	private AudioSource movementAudio;
 	public float jumpForce = 700f;
 
 
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
+		movementAudio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -34,7 +36,7 @@ public class PlayerControlScript : MonoBehaviour {
 		animator.SetFloat ("Speed", Mathf.Abs (move));
 
 		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
-	
+
 		if (move > 0 && !facingRight) {
 			Flip ();
 		} else if (move < 0 && facingRight) {

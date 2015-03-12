@@ -14,6 +14,7 @@ GameObject:
   - 120: {fileID: 12022194}
   - 114: {fileID: 11493864}
   - 108: {fileID: 10830378}
+  - 82: {fileID: 8256748}
   m_Layer: 12
   m_Name: lightningChainRangeDetection
   m_TagString: Untagged
@@ -44,6 +45,64 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_Radius: .100000001
   m_Center: {x: 0, y: 0}
+--- !u!82 &8256748
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184654}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 0f8d0c2a1f3c468418bcbf5b8457e583, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 2
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!108 &10830378
 Light:
   m_ObjectHideFlags: 1
@@ -91,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyRestruckDelay: 1
+  energyCost: 10
 --- !u!114 &11484656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   timeBetweenCast: .100000001
+  energyCost: 10
 --- !u!120 &12022194
 LineRenderer:
   m_ObjectHideFlags: 1

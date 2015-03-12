@@ -36,10 +36,33 @@ public class EntityScript : MonoBehaviour {
 		}
 	}
 
-	public void takeEnergy(float energy){
-		currentEnergy -= energy;
+	public void giveHealth(float addHealth) {
+		if (currentHealth < maxHealth) {
+			currentHealth += addHealth;
+		}
+		if (currentHealth > maxHealth){
+			currentHealth = maxHealth;
+		}
 	}
 
+	public void takeEnergy(float energy){
+		if (currentEnergy > 0) {
+			currentEnergy -= energy;
+		}
+		if (currentEnergy < 0){
+			currentEnergy = 0;
+		}
+	}
+
+	public void giveEnergy(float energy){
+		if (currentEnergy < maxEnergy) {
+			currentEnergy += energy;
+		}
+		if (currentEnergy > maxEnergy){
+			currentEnergy = maxEnergy;
+		}
+	}
+	
 	public void die (){
 		print ("player died!");
 		Destroy (gameObject);
@@ -56,24 +79,14 @@ public class EntityScript : MonoBehaviour {
 	private void regenerateHealth() {
 		
 		if (hasHealthRegeneration) {
-			if (currentHealth < maxHealth) {
-				currentHealth += (maxHealth * (healthRegenerationRate / 1000));
-			} else if (currentHealth > maxHealth){
-				currentHealth = maxHealth;
-			}
+			giveHealth(healthRegenerationRate / 1000);
 		} 
 	}
 
 	private void regenerateEnergy() {
 		
 		if (hasEnergyRegeneration) {
-			if (currentEnergy < maxEnergy) {
-				currentEnergy += (maxEnergy * (energyRegenerationRate / 1000));
-			} else if (currentEnergy > maxEnergy){
-				currentEnergy = maxEnergy;
-			}
+			giveEnergy(energyRegenerationRate / 1000);
 		} 
 	}
-
-
 }

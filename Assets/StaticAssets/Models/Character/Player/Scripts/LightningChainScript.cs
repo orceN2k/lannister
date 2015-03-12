@@ -4,6 +4,7 @@ using System.Collections;
 public class LightningChainScript : MonoBehaviour {
 	
 	public float enemyRestruckDelay = 3f;
+	public float energyCost = 10f;
 
 	private GameObject lightningBoltCircle;
 	private LightningBoltScript lbScript;
